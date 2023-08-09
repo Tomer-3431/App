@@ -4,7 +4,10 @@
 
 package frc.robot.subsystems;
 
+import org.opencv.features2d.FlannBasedMatcher;
+
 import com.ctre.phoenix.motorcontrol.ControlMode;
+import com.ctre.phoenix.motorcontrol.MotorCommutation;
 import com.ctre.phoenix.motorcontrol.can.TalonFX;
 import com.ctre.phoenix.motorcontrol.TalonFXControlMode;
 
@@ -25,6 +28,14 @@ public class Chassis extends SubsystemBase {
     motorRB = new TalonFX(Constants.rightBackMotorID);
 
     motorLF.set(TalonFXControlMode.Velocity, Constants.pulesToMeter*10);
+  }
+
+  public void invert(){
+    motorLF.setInverted(false);
+    motorLB.setInverted(false);
+    motorRF.setInverted(false);
+    motorRB.setInverted(false);
+    
   }
 
   public void setPower(double leftPower, double rightPower){

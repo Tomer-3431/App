@@ -30,6 +30,7 @@ public class PIDTask extends CommandBase {
   // Called when the command is initially scheduled.
   @Override
   public void initialize() {
+    chassis.invert();
     chassis.motorLB.config_kP(0, KP);
     chassis.motorLB.config_kI(0, KI);
     chassis.motorLB.config_kD(0, KD);
